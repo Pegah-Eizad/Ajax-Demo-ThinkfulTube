@@ -11,25 +11,15 @@ function getDataFromApi(searchTerm, callback) {
 }
 
 function renderResult(result) {
-  /*
   return `
     <div>
-    
-      <h2>
-      <a class="js-result-name" href="${result.html_url}" target="_blank">${result.name}</a> by <a class="js-user-name" href="${result.owner.html_url}" target="_blank">${result.owner.login}</a></h2>
-      
-    </div>
-  `;
-  */
-  return `
-    <div>
-      <a class="js-result-name" href="https://www.google.com/" target="_blank" target="_blank"><img src="${result.snippet.thumbnails.medium.url}"></a>
-      <h2><a href="#" target="_blank">${result.snippet.title}</a></h2>
+      <a class="js-result-name" href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank" target="_blank"><img src="${result.snippet.thumbnails.medium.url}"></a>
+      <h2><a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank">${result.snippet.title}</a></h2>
     </div>
     `;
 }
 
-function displayYouTubeSearchData(data) {
+function displayYoutubeSearchData(data) {
   const results = data.items.map((item, index) => renderResult(item));
   $('.js-search-results').html(results);
 }
